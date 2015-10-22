@@ -37,6 +37,17 @@ Window {
         anchors.fill: parent
         focus: true
         Keys.onPressed: {
+            if (event.key === Qt.Key_Backspace)
+            {
+                if (display.text.length > 0) {
+                    display.text
+                            = currentText
+                            = tempText
+                            = display.text.substring(0, display.text.length - 1);
+                }
+                return;
+            }
+
             timer.restart();
 
             var keyData = {
